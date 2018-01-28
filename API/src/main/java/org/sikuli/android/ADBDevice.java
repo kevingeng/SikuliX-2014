@@ -19,17 +19,15 @@ import se.vidstige.jadb.JadbException;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import java.util.Base64;
 public class ADBDevice {
 
   private static int lvl = 3;
@@ -171,8 +169,33 @@ public class ADBDevice {
     }
     Debug timer = Debug.startTimer();
     try {
-      InputStream stdout = device.executeShell("screencap");
+      InputStream stdout = device.executeShell("screencap -p | base64");
+      int ai=0;
+      ByteBuffer bf= ByteBuffer.allocateDirect(1024*1024*3);
+      byte[] bs=new byte[102400];
+      while((ai=stdout.read(bs))>0) {
+        //fos.write(bs,0,ai);
+        bf.put(bs,0,ai);
+      }
+
+      String filepath ="000004.png";
+      File file  = new File(filepath);
+      if(file.exists()){
+        file.delete();
+      }
+      FileOutputStream fos = new FileOutputStream(file);
+      byte[] fbs= org.apache.commons.net.util.Base64.decodeBase64(bf.array());
+      fos.write(fbs);
+      fos.flush();
+      fos.close();
+      stdout.close();
+
+//      InputStream stdout = device.executeShell("screencap");
+      stdout = device.executeShell("screencap");
       stdout.read(imagePrefix);
+
+
+
       if (imagePrefix[8] != 0x01) {
         log(-1, "captureDeviceScreenMat: image type not RGBA");
         return null;
