@@ -4,8 +4,6 @@ jdk:
 env:
   global:
 install: mvn install -DskipTests=true -B
-before_script:
-- gpg --fast-import codesigning/codesigning.asc
 script:
 - echo ---------- deploy
 - ". Setup/target/classes/content/deployOSSRH"
