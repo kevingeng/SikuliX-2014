@@ -5,6 +5,7 @@ import org.sikuli.basics.Debug;
 import se.vidstige.jadb.AdbServerLauncher;
 import se.vidstige.jadb.JadbConnection;
 import se.vidstige.jadb.JadbDevice;
+import se.vidstige.jadb.Subprocess;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,7 +25,7 @@ public class ADBClient {
     getConnection(true);
     if (jadb == null) {
       try {
-        new AdbServerLauncher().launch();
+        new AdbServerLauncher(null,"").launch();
         Debug.log(3, "ADBClient: ADBServer started");
         getConnection(false);
         if (jadb != null) {

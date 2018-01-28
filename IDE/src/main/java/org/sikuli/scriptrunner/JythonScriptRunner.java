@@ -107,13 +107,18 @@ public class JythonScriptRunner implements IScriptRunner {
     }
 
     try {
+      log(-1,"1");
       getInterpreter();
+      log(-1,"2");
       helper = JythonHelper.set(interpreter);
+      log(-1,"3");
       helper.getSysPath();
+      log(-1,"4");
       String fpAPI = null;
       String[] possibleJars = new String[]{"sikulixapi", "API/target/classes", "sikulix.jar"};
       for (String aJar : possibleJars) {
         if (null != (fpAPI = runTime.isOnClasspath(aJar))) {
+          log(-1,"aJar is "+aJar);
           break;
         }
       }
@@ -123,12 +128,15 @@ public class JythonScriptRunner implements IScriptRunner {
       String fpAPILib = new File(fpAPI, "Lib").getAbsolutePath();
       helper.putSysPath(fpAPILib, 0);
       helper.setSysPath();
+      Debug.info("try addSitePackages");
       helper.addSitePackages();
+      Debug.info("try showSysPath");
       helper.showSysPath();
+      Debug.info("try exec from sikuli import *");
       interpreter.exec("from sikuli import *");
       log(3, "running Jython %s", interpreter.eval("SIKULIX_IS_WORKING").toString());
     } catch (Exception ex) {
-      runTime.terminate(1, "JythonScriptRunner: cannot be initialized:\n%s", ex);
+      runTime.terminate(1, "JythonScriptRunner: cannot be initialized:\n%s", ex+ex.toString());
     }
     isReady = true;
   }
