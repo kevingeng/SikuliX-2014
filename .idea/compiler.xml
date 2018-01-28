@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jadb" />
+        <module name="sikulix" />
+        <module name="sikulixapi" />
+        <module name="sikulixsetup" />
+        <module name="sikulixsetupAPI" />
+        <module name="sikulixsetupIDE" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jadb" target="1.7" />
+      <module name="jadb (1)" target="1.7" />
+      <module name="sikulix" target="1.7" />
+      <module name="SikuliX-2014" target="1.7" />
+      <module name="sikulixapi" target="1.7" />
+      <module name="sikulixsetup" target="1.7" />
+      <module name="sikulixsetupAPI" target="1.7" />
+      <module name="sikulixsetupIDE" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

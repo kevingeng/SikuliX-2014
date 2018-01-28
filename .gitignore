@@ -1,5 +1,4 @@
 target*/
-.idea
 nb*
 *.iml
 stuff/
@@ -18,3 +17,4 @@ opencvsrc/
 .exe
 original/
 *.sikuli.robot/
+

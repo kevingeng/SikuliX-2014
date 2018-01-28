@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SikuliX-2014.iml" filepath="$PROJECT_DIR$/.idea/SikuliX-2014.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jadb/jadb (2).iml" filepath="$PROJECT_DIR$/jadb/jadb (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/IDE/sikulix.iml" filepath="$PROJECT_DIR$/IDE/sikulix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/API/sikulixapi.iml" filepath="$PROJECT_DIR$/API/sikulixapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Setup/sikulixsetup.iml" filepath="$PROJECT_DIR$/Setup/sikulixsetup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SetupAPI/sikulixsetupAPI.iml" filepath="$PROJECT_DIR$/SetupAPI/sikulixsetupAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SetupIDE/sikulixsetupIDE.iml" filepath="$PROJECT_DIR$/SetupIDE/sikulixsetupIDE.iml" />
+    </modules>
+  </component>
+</project>
