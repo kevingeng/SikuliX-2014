@@ -3,14 +3,12 @@ jdk:
 - oraclejdk8
 env:
   global:
+before_install:
 install: mvn install -DskipTests=true -B
+before_script:
 script:
 - echo ---------- deploy
 - ". Setup/target/classes/content/deployOSSRH"
-- echo ------- javadocs
-- ". Setup/target/classes/content/createJavadocs"
-- echo ------- nightly
-- ". Setup/target/classes/content/createNightly"
 deploy:
   provider: pages
   skip_cleanup: true
