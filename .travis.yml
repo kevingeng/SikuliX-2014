@@ -7,8 +7,8 @@ before_install:
 install: mvn install -DskipTests=true -B
 before_script:
 script:
-- echo ---------- deploy
-- ". Setup/target/classes/content/deployOSSRH"
+- echo ------- nightly
+- ". Setup/target/classes/content/createNightly"
 deploy:
   provider: pages
   skip_cleanup: true
